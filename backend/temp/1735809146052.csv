@@ -1,0 +1,6 @@
+index,saleID,productID,customerName,QuantitySold,SalePrice,SaleDate
+1,S010,P101,Alice,2,100.5,30-12-2024
+2,S011,P102,Bob,1,200.75,29-12-2024
+3,S012,P103,Charlie,3,150.3,28-12-2024
+4,S013,P104,David,5,50.25,27-12-2024
+5,S014,P105,Eve,2,120,26-12-2024
