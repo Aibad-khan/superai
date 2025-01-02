@@ -515,7 +515,9 @@ app.get("/api/tables", (req, res) => {
   res.json(Object.keys(tableRegistry));
 });
 
-
+app.get('/',(req,res)=>{
+  res.send('hello world')
+})
 app.post("/api/convert-query", upload.single("file"), async (req, res) => {
   try {
       const { query } = req.body; // Get natural language query from request body
