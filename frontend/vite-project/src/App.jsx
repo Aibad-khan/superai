@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 
 import './App.css'
-import CsvQueryComponent from './components/Homepage';
+// import CsvQueryComponent from './components/Homepage';
 import Homepage2 from './components/Homepage2';
 // import NaturalLanguageToSQL from './components/text_to_sql';
 // import { DuckDBProvider } from '@duckdb/react-duckdb';
