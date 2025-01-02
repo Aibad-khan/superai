@@ -377,7 +377,7 @@ app.use(cors());
 //   allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
 // };
 
-app.use(cors(corsOptions));
+
 app.use(express.json())
 // const storage = multer.diskStorage({
 //   destination: (req, file, cb) => {
