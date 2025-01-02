@@ -370,12 +370,12 @@ const app = express();
 const port = process.env.PORT||3001;
 dotenv.config();
 // Set up multer to handle file uploads
-// app.use(cors());
-const corsOptions = {
-  origin: process.env.URL, // Replace with your front-end URL
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-  allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-};
+app.use(cors());
+// const corsOptions = {
+//   origin: process.env.URL, // Replace with your front-end URL
+//   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+//   allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+// };
 
 app.use(cors(corsOptions));
 app.use(express.json())
