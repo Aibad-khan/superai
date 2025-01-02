@@ -65,7 +65,7 @@ const handleToggle = () => {
         }
     
         // Send the POST request to the backend
-        const response = await axios.post("/api/convert-query", formData, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/convert-query`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",  // Important for file uploads
           },
@@ -86,7 +86,7 @@ const handleToggle = () => {
         // console.log(`${key}:`, value);
         // }
 
-        const response2=await axios.post('/api/query',newformData, {
+        const response2=await axios.post(`${import.meta.env.VITE_API_URL}/api/query`,newformData, {
             headers: {
               "Content-Type": "multipart/form-data",  // Important for file uploads
             },});

@@ -155,7 +155,7 @@ function CsvQueryComponent() {
     formData.append("query", query);
 
     try {
-      const response = await axios.post("/api/query", formData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/query`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setResult(response.data);
