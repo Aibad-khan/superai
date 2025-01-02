@@ -394,39 +394,12 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname)); // Unique filename
-  },
+  }, 
 });
 
 const upload = multer({ storage });
 
 // Function to delete expired files
-const deleteExpiredFiles = () => {
-  const tempFolder = "temp/";
-  const expirationTime = 5 * 60 * 1000; // Set file expiration to 24 hours (in milliseconds)
-
-  fs.readdir(tempFolder, (err, files) => {
-    if (err) return console.error("Error reading temp folder:", err);
-
-    files.forEach((file) => {
-      const filePath = path.join(tempFolder, file);
-      fs.stat(filePath, (err, stats) => {
-        if (err) return console.error("Error getting file stats:", err);
-
-        const fileAge = Date.now() - stats.mtimeMs; // Get file age in milliseconds
-        if (fileAge > expirationTime) {
-          // Delete file if it exceeds the expiration time
-          fs.unlink(filePath, (err) => {
-            if (err) return console.error("Error deleting file:", err);
-            console.log(`Deleted expired file: ${filePath}`);
-          });
-        }
-      });
-    });
-  });
-};
-
-// Call the cleanup function at regular intervals (every hour in this case)
-setInterval(deleteExpiredFiles, 1 * 60 * 1000); 
 
 
 
