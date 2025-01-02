@@ -372,7 +372,7 @@ dotenv.config();
 // Set up multer to handle file uploads
 // app.use(cors());
 const corsOptions = {
-  origin: "https://your-frontend-url.com", // Replace with your front-end URL
+  origin: process.env.URL, // Replace with your front-end URL
   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
   allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
 };
