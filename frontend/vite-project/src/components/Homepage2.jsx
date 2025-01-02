@@ -1,15 +1,13 @@
 import  { useState } from "react";
 import { Switch, TextField, Button, Typography, Box } from "@mui/material";
 import { useDropzone } from "react-dropzone";
-// import React, { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import "./Homepage2.css"; // Custom CSS for styling
-// import CsvQueryComponent from "./Homepage";
 import axios from "axios";
 import Papa from "papaparse";
 import QueryResultTable from "./QueryResultTable";
 import CsvQueryComponent from "./Homepage";
-// import DuckDBQueryInterface from "./Homepage";
+
 
 function Homepage2() {
   const [isDuckDB, setIsDuckDB] = useState(true);
@@ -22,7 +20,7 @@ function Homepage2() {
   const onDrop = (acceptedFiles) => {
     const uploadedFile = acceptedFiles[0];
     setFile(uploadedFile);
-    // setFile(acceptedFiles[0]);
+
   
 
   Papa.parse(uploadedFile, {
@@ -106,176 +104,7 @@ const handleToggle = () => {
   };
 
   return (
-    // <Box
-    //   sx={{
-    //     display: "flex",
-    //     flexDirection: "column",
-    //     alignItems: "center",
-    //     justifyContent: "center",
-    //     minHeight: "100vh",
-    //     backgroundColor: "#f9f9f9",
-    //     padding: "20px",
-    //   }}
-    // >
-    //   <Box
-    //     sx={{
-    //       maxWidth: 700,
-    //       width: "100%",
-    //       background: "#ffffff",
-    //       boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-    //       borderRadius: "12px",
-    //       padding: "30px",
-    //     }}
-    //   >
-    //     {/* Header */}
-    //     <Box
-    //       display="flex"
-    //       justifyContent="space-between"
-    //       alignItems="center"
-    //       sx={{ mb: 3 }}
-    //     >
-    //       <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-    //         DuckDB
-    //       </Typography>
-    //       <Switch
-    //         checked={isDuckDB}
-    //         onChange={() => setIsDuckDB((prev) => !prev)}
-    //       />
-    //     </Box>
-
-    //     {isDuckDB ? (
-    //       <>
-    //         {/* Title */}
-    //         <Typography
-    //           variant="h4"
-    //           sx={{
-    //             textAlign: "center",
-    //             fontWeight: "bold",
-    //             color: "#333",
-    //             mb: 1,
-    //           }}
-    //         >
-    //           DuckDB Query Interface
-    //         </Typography>
-    //         <Typography
-    //           variant="body1"
-    //           sx={{
-    //             textAlign: "center",
-    //             color: "#666",
-    //             mb: 3,
-    //           }}
-    //         >
-    //           Analyze your data using natural language queries
-    //         </Typography>
-
-    //         {/* Predefined Query Buttons */}
-    //         <Box
-    //           sx={{
-    //             display: "flex",
-    //             flexWrap: "wrap",
-    //             justifyContent: "center",
-    //             gap: "10px",
-    //             mb: 3,
-    //           }}
-    //         >
-    //           {predefinedQueries.map((queryText, index) => (
-    //             <Button
-    //               key={index}
-    //               variant="outlined"
-    //               onClick={() => handleQueryClick(queryText)}
-    //               sx={{
-    //                 textTransform: "none",
-    //                 color: "#333",
-    //                 borderColor: "#ccc",
-    //               }}
-    //             >
-    //               {queryText}
-    //             </Button>
-    //           ))}
-    //         </Box>
-
-    //         {/* Query Input */}
-    //         <TextField
-    //           fullWidth
-    //           variant="outlined"
-    //           placeholder="Enter your natural language query..."
-    //           value={query}
-    //           onChange={(e) => setQuery(e.target.value)}
-    //           sx={{
-    //             mb: 3,
-    //             "& .MuiOutlinedInput-root": {
-    //               borderRadius: "8px",
-    //             },
-    //           }}
-    //         />
-
-    //         {/* File Upload Section */}
-    //         <Box
-    //           {...getRootProps()}
-    //           sx={{
-    //             border: "2px dashed #ccc",
-    //             borderRadius: "8px",
-    //             padding: "20px",
-    //             textAlign: "center",
-    //             mb: 3,
-    //             cursor: "pointer",
-    //             "&:hover": {
-    //               backgroundColor: "#f5f5f5",
-    //             },
-    //           }}
-    //         >
-    //           <input {...getInputProps()} />
-    //           {file ? (
-    //             <Typography>{file.name}</Typography>
-    //           ) : (
-    //             <Typography color="#666">
-    //               Click or drag a file to upload
-    //             </Typography>
-    //           )}
-    //         </Box>
-
-    //         {/* Submit Button */}
-    //         <Button
-    //           variant="contained"
-    //           color="primary"
-    //           fullWidth
-    //           onClick={handleSubmit}
-    //           sx={{
-    //             textTransform: "none",
-    //             padding: "10px 0",
-    //             backgroundColor: "#007bff",
-    //             "&:hover": {
-    //               backgroundColor: "#0056b3",
-    //             },
-    //           }}
-    //         >
-    //           Submit Query
-    //         </Button>
-    //       </>
-    //     ) : (
-    //       <>
-    //         {/* Alternative Component When Switch Is Toggled */}
-    //         <Typography
-    //           variant="h4"
-    //           sx={{
-    //             textAlign: "center",
-    //             fontWeight: "bold",
-    //             color: "#333",
-    //             mb: 3,
-    //           }}
-    //         >
-    //           Alternate Component
-    //         </Typography>
-    //         <Typography
-    //           variant="body1"
-    //           sx={{ textAlign: "center", color: "#666", mb: 3 }}
-    //         >
-    //           <CsvQueryComponent/>
-    //         </Typography>
-    //       </>
-    //     )}
-    //   </Box>
-    // </Box>
+    
     <Box
       sx={{
         display: "flex",flexDirection: "column",alignItems: "center",justifyContent: "center",minHeight: "100vh",backgroundColor: "#f9f9f9",padding: "20px",
@@ -400,7 +229,7 @@ const handleToggle = () => {
               Submit Query
             </Button>
             {queryResult!=null?
-            <div>
+            <div style={{ margin: '20px', fontFamily: 'Arial, sans-serif' }}>
                 <p >Result</p>
                 <QueryResultTable data={queryResult} /> 
             </div>
